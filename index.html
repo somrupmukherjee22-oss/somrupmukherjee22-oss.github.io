@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--
+  index.html — the CONTENT and STRUCTURE of your website.
+
+  How to read this file:
+    * Any text wrapped in an "angle bracket, exclamation mark, two dashes"
+      opener is a comment (like this note). Visitors never see comments;
+      they are notes for you.
+    * Look for comments that start with "EDIT:" — those mark the places
+      where you should replace my sample text with your own.
+    * The looks live in css/style.css, and the behaviour in js/main.js.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- EDIT: the title appears in the browser tab and in Google results. -->
+  <title>Somrup Mukherjee | Exoplanet research</title>
+  <!-- EDIT: the description is the short summary Google may show under your link. -->
+  <meta name="description" content="Somrup Mukherjee, a research intern studying exoplanet atmospheres with JWST data.">
+
+  <!-- A planet emoji as the tab icon, so you don't need to make an image file. -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+
+  <!-- Fonts from Google Fonts (needs internet). If they fail to load, the
+       browser uses the fallback fonts listed in css/style.css. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&display=swap" rel="stylesheet">
+
+  <!-- Connect the stylesheet and the script. The paths are relative to this file. -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Lets keyboard and screen-reader users skip the sidebar. Invisible until focused. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="layout">
+
+    <!-- ========== SIDEBAR: photo, name, navigation ========== -->
+    <header class="sidebar">
+
+      <!-- EDIT: put your photo at images/headshot.jpg (square works best).
+           Until the photo exists, the circle shows the initials below. -->
+      <div class="portrait">
+        <span class="initials" aria-hidden="true">SM</span>
+        <img src="images/headshot.jpg" alt="Photo of Somrup Mukherjee" width="160" height="160" onerror="this.remove()">
+      </div>
+
+      <div class="sidebar-id">
+        <!-- EDIT: your name, role and institution -->
+        <h1 class="site-name">Somrup Mukherjee</h1>
+        <p class="site-role">Exoplanet research intern<br>Your University</p>
+      </div>
+
+      <!-- Each link points to a section further down via its id.
+           href="#about" jumps to the element with id="about".
+           If you add or remove a section, add or remove its link here. -->
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#skills">Tools and skills</a></li>
+          <li><a href="#talks">Talks and outreach</a></li>
+          <li><a href="#cv">CV</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="main">
+
+      <!-- ----- About ----- -->
+      <section id="about">
+        <!-- EDIT: one sentence that says what you study. -->
+        <p class="lead">I study the atmospheres of planets around other stars.</p>
+
+        <!-- The light curve. It is drawn by js/main.js into the empty <svg>.
+             EDIT the caption if you like; the picture itself is simulated. -->
+        <figure class="transit">
+          <svg id="transit-plot" viewBox="0 0 640 190" role="img"
+               aria-label="Simulated light curve: a star's brightness dips while a planet passes in front of it"></svg>
+          <figcaption>
+            Simulated transit. When a planet crosses in front of its star, the star dims slightly.
+            Measured wavelength by wavelength, that dimming reveals which gases are in the planet's atmosphere.
+          </figcaption>
+        </figure>
+
+        <h2>About me</h2>
+        <!-- EDIT: write 2 to 4 short paragraphs in your own words. -->
+        <p>
+          Hi, I'm Somrup. I'm a [year and degree] student at Your University, and I'm doing a research
+          internship analysing JWST observations of exoplanets.
+        </p>
+        <p>
+          I'm interested in how we can read the chemistry of distant worlds from the starlight that passes
+          through their atmospheres. Right now I'm learning the tools of the trade: reducing telescope data,
+          extracting spectra, and, soon, building atmospheric models.
+        </p>
+        <p>
+          Outside research, I enjoy [hobby], [hobby] and [hobby].
+        </p>
+      </section>
+
+      <!-- ----- Research ----- -->
+      <section id="research">
+        <h2>Research</h2>
+        <p>
+          My work so far is about turning raw JWST observations into transmission spectra of exoplanets,
+          and then interpreting what those spectra say about the planets' atmospheres.
+        </p>
+
+        <!-- Each project is one <article>. To add a project, copy a whole
+             <article>...</article> block and paste it below the last one.
+             data-status="active" gives the accent-coloured bar on the left;
+             use data-status="planned" for a grey bar. -->
+
+        <!-- EDIT: replace this sample project with your real one. -->
+        <article class="project" data-status="active">
+          <h3>Reducing JWST time-series data with Eureka!</h3>
+          <p class="status">In progress</p>
+          <p>
+            Running the Eureka! pipeline stage by stage on the public WASP-39b example dataset, from
+            uncalibrated detector data to light curves and spectra, and learning what each stage does.
+          </p>
+          <p><a href="https://eurekadocs.readthedocs.io/">Eureka! documentation</a></p>
+        </article>
+
+        <article class="project" data-status="planned">
+          <h3>Extracting transmission spectra</h3>
+          <p class="status">Planned</p>
+          <p>
+            Extracting transmission spectra for a set of assigned planets and comparing them with published results.
+          </p>
+        </article>
+
+        <article class="project" data-status="planned">
+          <h3>3D atmospheric modelling</h3>
+          <p class="status">Planned</p>
+          <p>
+            Interpreting the extracted spectra with three-dimensional atmospheric models, which capture how
+            temperature and winds vary across a planet.
+          </p>
+        </article>
+      </section>
+
+      <!-- ----- Tools and skills ----- -->
+      <section id="skills">
+        <h2>Tools and skills</h2>
+        <!-- EDIT: only list what you are comfortable talking about.
+             <dl> is a "description list": <dt> is the term, <dd> is its description. -->
+        <dl class="skills">
+          <dt>Programming</dt>
+          <dd>Python</dd>
+
+          <dt>JWST data tools</dt>
+          <dd>Eureka! (time-series observations), spaceKLIP (direct imaging)</dd>
+
+          <dt>Workflow</dt>
+          <dd>Git and GitHub, Jupyter notebooks</dd>
+        </dl>
+      </section>
+
+      <!-- ----- Talks and outreach ----- -->
+      <section id="talks">
+        <h2>Talks and outreach</h2>
+        <!-- EDIT: one <li> per talk, poster, or outreach event. Newest first. -->
+        <ul class="timeline">
+          <li>
+            <time datetime="2026">2026</time>
+            <span>Presented study papers on exoplanet atmospheres to my research group.</span>
+          </li>
+          <li>
+            <time datetime="2026">Year</time>
+            <span>Add a talk, poster, or outreach event here.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ----- CV ----- -->
+      <section id="cv">
+        <h2>CV</h2>
+        <!-- EDIT: save your CV as files/cv.pdf. Until you do, this link shows a "404 not found" page. -->
+        <p><a href="files/cv.pdf">Download my CV (PDF)</a></p>
+      </section>
+
+      <!-- ----- Contact ----- -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <!-- EDIT: use your real links. Only share contact details you're happy to make public. -->
+        <ul class="contact-list">
+          <li><a href="mailto:you@example.com">Email</a></li>
+          <li><a href="https://github.com/somrupmukherjee22-oss">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/your-name/">LinkedIn</a></li>
+        </ul>
+      </section>
+
+      <footer class="site-footer">
+        <!-- js/main.js fills in the current year automatically. -->
+        <p>&copy; <span id="year">2026</span> Somrup Mukherjee</p>
+      </footer>
+    </main>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,400 @@
+/* =====================================================================
+   style.css — how your website LOOKS
+
+   How CSS works: a rule has a "selector" (which elements to style) and
+   "declarations" (what to change), like this:
+
+       h2 { font-size: 2rem; }
+       ^^   ^^^^^^^^^^^^^^^^^^
+       selector   declaration
+
+   Sections in this file:
+     1. Design tokens (colours, fonts) — change these first
+     2. Base styles
+     3. Layout: sidebar + main column
+     4. Sidebar
+     5. Main content
+     6. The transit figure
+     7. Small screens (phones, tablets)
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   1. DESIGN TOKENS
+   "Custom properties" (names starting with --) are variables. Change a
+   value here and it updates everywhere the variable is used.
+   --------------------------------------------------------------------- */
+:root {
+  /* Light theme */
+  --bg: #f3f5f9;          /* page background */
+  --text: #1d2333;        /* main text */
+  --muted: #566076;       /* captions, secondary text */
+  --rule: #d6dbe6;        /* thin lines */
+  --accent: #0b7a87;      /* links and highlights (teal) */
+  --amber: #d99a00;       /* the in-transit points in the figure */
+
+  /* The sidebar stays dark in both themes */
+  --sidebar-bg: #16213e;
+  --sidebar-text: #c9d3ea;
+  --sidebar-strong: #ffffff;
+  --sidebar-accent: #63c7d3;
+
+  /* Fonts: the first name is used if available, otherwise the next one. */
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Literata", Georgia, "Times New Roman", serif;
+
+  --sidebar-width: 19rem;
+}
+
+/* Dark theme: applies automatically when the visitor's device is set to dark mode. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1524;
+    --text: #e4e8f1;
+    --muted: #9aa5bc;
+    --rule: #26304a;
+    --accent: #5cc6d2;
+    --amber: #f0b429;
+    --sidebar-bg: #0a0f1c;
+  }
+}
+
+
+/* ---------------------------------------------------------------------
+   2. BASE STYLES
+   --------------------------------------------------------------------- */
+
+/* Make width/height include padding and borders. Saves a lot of confusion. */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;   /* 17px if the browser default is 16px */
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; }
+
+/* Visible keyboard focus: important for accessibility. */
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* The "skip to content" link: parked off-screen until someone tabs to it. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 0.25rem;
+}
+.skip-link:focus { top: 1rem; }
+
+
+/* ---------------------------------------------------------------------
+   3. LAYOUT
+   A CSS grid with two columns: a fixed-width sidebar and a main column
+   that takes the remaining space (1fr = "one share of the free space").
+   --------------------------------------------------------------------- */
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+
+/* ---------------------------------------------------------------------
+   4. SIDEBAR
+   "sticky" keeps it in view while the main column scrolls.
+   --------------------------------------------------------------------- */
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 3rem 2rem;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+}
+
+/* The circular photo. The initials sit underneath the <img>, so they show
+   only when the photo file is missing. */
+.portrait {
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #26365e;
+}
+.portrait .initials {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--sidebar-text);
+}
+.portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* crop to fill the circle instead of squashing */
+}
+
+.site-name {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--sidebar-strong);
+}
+.site-role {
+  margin: 0 0 2rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.sidebar nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sidebar nav a {
+  display: block;
+  padding: 0.4rem 0 0.4rem 1rem;
+  border-left: 2px solid transparent;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--sidebar-text);
+  text-decoration: none;
+}
+.sidebar nav a:hover { color: var(--sidebar-strong); }
+
+/* js/main.js sets aria-current="true" on the link for the section you're reading. */
+.sidebar nav a[aria-current="true"] {
+  color: var(--sidebar-strong);
+  border-left-color: var(--sidebar-accent);
+}
+.sidebar a:focus-visible { outline-color: var(--sidebar-accent); }
+
+
+/* ---------------------------------------------------------------------
+   5. MAIN CONTENT
+   --------------------------------------------------------------------- */
+main {
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 5vw, 4.5rem) 4rem;
+}
+
+main section { max-width: 44rem; }
+
+/* Space and a thin line between sections. */
+main section + section {
+  margin-top: 4.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* Keep paragraphs to a comfortable line length (about 66 characters). */
+main p { max-width: 66ch; }
+
+main h2 {
+  margin: 2.5rem 0 1rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+main section > h2:first-child { margin-top: 0; }
+
+main a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+main a:hover { text-decoration-thickness: 2px; }
+
+/* The big opening sentence. */
+.lead {
+  max-width: 24ch;
+  margin: 0 0 2rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* Research projects. The left bar encodes status: teal = active, grey = planned. */
+.project {
+  margin: 2rem 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--rule);
+}
+.project[data-status="active"] { border-left-color: var(--accent); }
+.project h3 {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+.status {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Tools and skills: a two-column grid of term + description. */
+.skills {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.75rem 1.5rem;
+  margin: 0;
+}
+.skills dt { font-family: var(--font-display); font-weight: 600; }
+.skills dd { margin: 0; }
+
+/* Talks and outreach: date on the left, description on the right. */
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.timeline li {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--rule);
+}
+.timeline li:first-child { border-top: 0; padding-top: 0; }
+.timeline time {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.contact-list li { margin: 0.4rem 0; }
+
+.site-footer {
+  margin-top: 5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+
+/* ---------------------------------------------------------------------
+   6. THE TRANSIT FIGURE (drawn by js/main.js)
+   --------------------------------------------------------------------- */
+.transit { margin: 0 0 3rem; }
+.transit svg { display: block; width: 100%; height: auto; }
+.transit figcaption {
+  max-width: 52ch;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.transit .axis { fill: none; stroke: var(--rule); stroke-width: 1.5; }
+.transit .axis-label {
+  fill: var(--muted);
+  font-family: var(--font-display);
+  font-size: 14px;
+}
+.transit .model {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.85;
+}
+.transit .dot { fill: var(--muted); }
+.transit .dot.in-transit { fill: var(--amber); }
+
+/* The one animation on the page: the curve draws itself, then the data
+   points appear from left to right. main.js sets --len and --i. */
+.transit .model {
+  stroke-dasharray: var(--len);
+  stroke-dashoffset: var(--len);
+  animation: draw 2.4s ease-out 0.3s forwards;
+}
+.transit .dot {
+  opacity: 0;
+  animation: show 0.3s ease-out forwards;
+  animation-delay: calc(0.3s + var(--i) * 30ms);
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes show { to { opacity: 0.9; } }
+
+/* Respect visitors who ask their device to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .transit .model { animation: none; stroke-dashoffset: 0; }
+  .transit .dot { animation: none; opacity: 0.9; }
+}
+
+
+/* ---------------------------------------------------------------------
+   7. SMALL SCREENS
+   Below 56rem (about 900px) the sidebar becomes a compact header at the
+   top, and the navigation becomes a row you can scroll sideways.
+   --------------------------------------------------------------------- */
+@media (max-width: 56rem) {
+  .layout { display: block; }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+    align-items: center;
+    padding: 1.5rem 1.25rem 0;
+  }
+  .portrait { width: 4.5rem; height: 4.5rem; margin: 0; }
+  .portrait .initials { font-size: 1.5rem; }
+  .site-name { margin: 0; font-size: 1.35rem; }
+  .site-role { margin: 0.25rem 0 0; font-size: 0.85rem; }
+
+  .sidebar nav { grid-column: 1 / -1; margin-top: 1rem; }
+  .sidebar nav ul {
+    display: flex;
+    gap: 0.25rem 1.25rem;
+    overflow-x: auto;
+  }
+  .sidebar nav a {
+    padding: 0.5rem 0;
+    border-left: 0;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+  .sidebar nav a[aria-current="true"] { border-bottom-color: var(--sidebar-accent); }
+
+  .skills { grid-template-columns: 1fr; gap: 0; }
+  .skills dd { margin-bottom: 0.75rem; }
+  .timeline li { grid-template-columns: 4rem 1fr; }
+}
