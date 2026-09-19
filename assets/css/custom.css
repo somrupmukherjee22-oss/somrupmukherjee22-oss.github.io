@@ -1,0 +1,36 @@
+/* custom.css: small additions on top of the Read Only template (main.css).
+   Keeping them here means you never have to edit main.css. */
+
+/* Project headings: a bit more room above each one */
+#research h4 {
+	margin-top: 2.5em;
+}
+
+/* The line under a project title (dates, place) */
+.project-meta {
+	color: #777;
+	font-size: 0.9em;
+	margin: -0.75em 0 1.25em 0;
+}
+
+/* Figure captions: tuck them under their image */
+.image.fit + .caption {
+	color: #777;
+	font-size: 0.85em;
+	margin: -1.25em 0 2.5em 0;
+}
+
+/* The CV shown inside the page (hidden on small screens, where a download button is enough) */
+.cv-embed {
+	display: block;
+	width: 100%;
+	height: 44em;
+	margin-top: 1.5em;
+	border: solid 1px #f4f4f4;
+}
+
+@media screen and (max-width: 736px) {
+	.cv-embed {
+		display: none;
+	}
+}

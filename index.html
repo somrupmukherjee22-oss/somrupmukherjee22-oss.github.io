@@ -1,211 +1,151 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <!--
-  index.html — the CONTENT and STRUCTURE of your website.
-
-  How to read this file:
-    * Any text wrapped in an "angle bracket, exclamation mark, two dashes"
-      opener is a comment (like this note). Visitors never see comments;
-      they are notes for you.
-    * Look for comments that start with "EDIT:" — those mark the places
-      where you should replace my sample text with your own.
-    * The looks live in css/style.css, and the behaviour in js/main.js.
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
+	<head>
+		<title>Somrup Mukherjee</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Somrup Mukherjee: optics undergraduate at the University of Calcutta and research intern studying exoplanet atmospheres." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
+	</head>
+	<body class="is-preload">
 
-  <!-- EDIT: the title appears in the browser tab and in Google results. -->
-  <title>Somrup Mukherjee | Exoplanet research</title>
-  <!-- EDIT: the description is the short summary Google may show under your link. -->
-  <meta name="description" content="Somrup Mukherjee, a research intern studying exoplanet atmospheres with JWST data.">
+		<!-- Header (sidebar) -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="images/avatar.jpg" alt="Somrup Mukherjee" /></span>
+					<h1 id="logo"><a href="#">Somrup Mukherjee</a></h1>
+					<p>Undergraduate Student<br />
+					University of Calcutta<br />
+					Research Intern, ASU</p>
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="#bio" class="active">About Me</a></li>
+						<li><a href="#research">Research</a></li>
+						<li><a href="#outreach">Outreach</a></li>
+						<li><a href="#cv">CV</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/somrup-mukherjee-23726a31b" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/somrupmukherjee22-oss" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="mailto:somrupmukherjee22@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
 
-  <!-- A planet emoji as the tab icon, so you don't need to make an image file. -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-  <!-- Fonts from Google Fonts (needs internet). If they fail to load, the
-       browser uses the fallback fonts listed in css/style.css. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&display=swap" rel="stylesheet">
+				<!-- Main -->
+					<div id="main">
 
-  <!-- Connect the stylesheet and the script. The paths are relative to this file. -->
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
-</head>
+						<!-- About Me -->
+							<section id="bio">
+								<div class="image main" data-position="center">
+									<img src="images/banner.jpg" alt="The Milky Way with a distant star and planet" />
+								</div>
+								<div class="container">
+									<header class="major">
+										<h2>About Me</h2>
+										<p>Optics undergraduate studying exoplanets</p>
+									</header>
+									<p>Hi, I'm Somrup Mukherjee! I'm an undergraduate student pursuing a B.Tech in Optics &amp; Optoelectronics Engineering at the Department of Applied Optics &amp; Photonics, University of Calcutta, in Kolkata, India. My interests centre on planetary science and exoplanets, planet and star formation, star&ndash;planet interaction, optics, and astronomical instrumentation.</p>
+									<p>I'm currently a remote research intern at Arizona State University's School of Earth and Space Exploration, where I work on exoplanet atmospheres under Dr. Sagnick Mukherjee. Alongside this, I've built my own pipeline to detect and characterize the hot Jupiter HD 209458 b from TESS data, and I've analysed what drives hot Jupiter radius inflation. You can read about all of these below.</p>
+									<p>I'm a recipient of the G.P. Birla Scholarship, and I placed first in an astronomy quiz competition at the University of Calcutta in 2025. I work mainly in Python and C/C++, and I've also used MATLAB and Zemax. I speak English, Bengali and Hindi.</p>
+								</div>
+							</section>
 
-<body>
-  <!-- Lets keyboard and screen-reader users skip the sidebar. Invisible until focused. -->
-  <a class="skip-link" href="#main">Skip to content</a>
+						<!-- Research -->
+							<section id="research">
+								<div class="container">
+									<h3>Research</h3>
+									<p>I'm interested in understanding exoplanets from both sides: the observations that reveal them and the physics that shapes them. Here are the projects I've worked on so far.</p>
 
-  <div class="layout">
+									<h4>Exoplanet Atmospheres with JWST Data</h4>
+									<p class="project-meta">Research internship, School of Earth and Space Exploration, Arizona State University (remote). August 2026 &ndash; present</p>
+									<p>I'm working on exoplanet atmospheres with Dr. Sagnick Mukherjee, using data from the James Webb Space Telescope (JWST). The project is planned in stages. I'm starting with the <a href="https://eurekadocs.readthedocs.io/">Eureka!</a> pipeline, which turns raw JWST time-series observations into light curves and spectra, and I'm practising on the public WASP-39b example dataset. Next, I'll extract transmission spectra for specific planets, and after that I'll move on to 3D atmospheric modelling.</p>
 
-    <!-- ========== SIDEBAR: photo, name, navigation ========== -->
-    <header class="sidebar">
+									<h4>Detection and Characterization of the Exoplanet HD 209458 b</h4>
+									<p class="project-meta">July &ndash; August 2026</p>
+									<p>HD 209458 b is a well-studied hot Jupiter, and it was the first exoplanet ever seen transiting its star. For this project I built an independent detection pipeline from scratch using publicly available TESS photometry, covering data retrieval, preprocessing, detrending and transit-signal extraction.</p>
+									<p>I used the Box Least Squares (BLS) method to find the periodic transit signal, then fit a Mandel&ndash;Agol transit model to the phase-folded light curve to characterize the system. The orbital period, transit depth, planet-to-star radius ratio, scaled orbital distance and orbital inclination that I recovered agree with independently published literature values to within roughly 1&ndash;2%.</p>
+									<span class="image fit"><img src="images/hd209458_tess.png" alt="Four-panel figure for HD 209458 b: raw TESS light curve, detrended light curve, BLS periodogram peaking at the known period, and the phase-folded transit with a fitted model" /></span>
+									<p class="caption">Analysis summary for HD 209458 b. <em>Top row</em>: raw and detrended TESS light curves. <em>Bottom left</em>: BLS periodogram near the literature period. <em>Bottom right</em>: phase-folded transit with the fitted transit model.</p>
 
-      <!-- EDIT: put your photo at images/headshot.jpg (square works best).
-           Until the photo exists, the circle shows the initials below. -->
-      <div class="portrait">
-        <span class="initials" aria-hidden="true">SM</span>
-        <img src="images/headshot.jpg" alt="Photo of Somrup Mukherjee" width="160" height="160" onerror="this.remove()">
-      </div>
+									<h4>Hot Jupiter Radius Inflation</h4>
+									<p class="project-meta">Independent project, June 2026</p>
+									<p>Many hot Jupiters are larger than standard planetary models predict, a puzzle known as radius inflation. In this project I used Python to analyse observational exoplanet datasets and see how planet radius depends on equilibrium temperature and on the stellar irradiation a planet receives. I cleaned and preprocessed the data, studied correlations, and searched for thresholds in the trends.</p>
+									<p>I then implemented and compared several linear and nonlinear models through statistical fitting, visualization and physical interpretation. Nonlinear models based on the logarithm of stellar irradiation explained the data best. Of the seven models I tested, an arctangent function of log irradiation gave the highest R<sup>2</sup> (about 0.44), which suggests that inflation switches on around a threshold in irradiation rather than growing steadily with it.</p>
+									<span class="image fit"><img src="images/hotjupiter_arctan_log_irr.png" alt="Scatter plot of hot Jupiter planet radius versus log irradiation with a fitted S-shaped arctangent curve that rises and then flattens" /></span>
+									<p class="caption">Hot Jupiter radius versus log stellar irradiation, with the best-fitting arctangent model.</p>
+								</div>
+							</section>
 
-      <div class="sidebar-id">
-        <!-- EDIT: your name, role and institution -->
-        <h1 class="site-name">Somrup Mukherjee</h1>
-        <p class="site-role">Exoplanet research intern<br>Your University</p>
-      </div>
+						<!-- Outreach -->
+							<section id="outreach">
+								<div class="container">
+									<h3>Outreach</h3>
+									<p>I'm the Secretary of the OPTICA (OSA) student chapter at the University of Calcutta, a role I've held since April 2026. We take demonstrations of optical models and theories into schools and colleges, and we organize seminars and events for students.</p>
+								</div>
+							</section>
 
-      <!-- Each link points to a section further down via its id.
-           href="#about" jumps to the element with id="about".
-           If you add or remove a section, add or remove its link here. -->
-      <nav aria-label="Sections">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#skills">Tools and skills</a></li>
-          <li><a href="#talks">Talks and outreach</a></li>
-          <li><a href="#cv">CV</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+						<!-- CV -->
+							<section id="cv">
+								<div class="container">
+									<h3>CV</h3>
+									<p>My CV lists my education, research experience, skills and activities.</p>
+									<ul class="actions">
+										<li><a href="Somrup_Mukherjee_CV.pdf" class="button primary icon solid fa-download">Download CV (PDF)</a></li>
+									</ul>
+									<object class="cv-embed" data="Somrup_Mukherjee_CV.pdf" type="application/pdf">
+										<p>Your browser can't show the PDF here. <a href="Somrup_Mukherjee_CV.pdf">Open my CV</a> instead.</p>
+									</object>
+								</div>
+							</section>
 
-    <!-- ========== MAIN CONTENT ========== -->
-    <main id="main">
+						<!-- Contact -->
+							<section id="contact">
+								<div class="container">
+									<h3>Contact</h3>
+									<p>I'm always happy to talk about exoplanets, optics and research. Feel free to get in touch.</p>
+									<ul class="actions">
+										<li><a href="mailto:somrupmukherjee22@gmail.com" class="button primary icon solid fa-envelope">Email me</a></li>
+										<li><a href="https://www.linkedin.com/in/somrup-mukherjee-23726a31b" class="button icon brands fa-linkedin-in">LinkedIn</a></li>
+										<li><a href="https://github.com/somrupmukherjee22-oss" class="button icon brands fa-github">GitHub</a></li>
+									</ul>
+								</div>
+							</section>
 
-      <!-- ----- About ----- -->
-      <section id="about">
-        <!-- EDIT: one sentence that says what you study. -->
-        <p class="lead">I study the atmospheres of planets around other stars.</p>
+					</div>
 
-        <!-- The light curve. It is drawn by js/main.js into the empty <svg>.
-             EDIT the caption if you like; the picture itself is simulated. -->
-        <figure class="transit">
-          <svg id="transit-plot" viewBox="0 0 640 190" role="img"
-               aria-label="Simulated light curve: a star's brightness dips while a planet passes in front of it"></svg>
-          <figcaption>
-            Simulated transit. When a planet crosses in front of its star, the star dims slightly.
-            Measured wavelength by wavelength, that dimming reveals which gases are in the planet's atmosphere.
-          </figcaption>
-        </figure>
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; 2026 Somrup Mukherjee</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
 
-        <h2>About me</h2>
-        <!-- EDIT: write 2 to 4 short paragraphs in your own words. -->
-        <p>
-          Hi, I'm Somrup. I'm a [year and degree] student at Your University, and I'm doing a research
-          internship analysing JWST observations of exoplanets.
-        </p>
-        <p>
-          I'm interested in how we can read the chemistry of distant worlds from the starlight that passes
-          through their atmospheres. Right now I'm learning the tools of the trade: reducing telescope data,
-          extracting spectra, and, soon, building atmospheric models.
-        </p>
-        <p>
-          Outside research, I enjoy [hobby], [hobby] and [hobby].
-        </p>
-      </section>
+			</div>
 
-      <!-- ----- Research ----- -->
-      <section id="research">
-        <h2>Research</h2>
-        <p>
-          My work so far is about turning raw JWST observations into transmission spectra of exoplanets,
-          and then interpreting what those spectra say about the planets' atmospheres.
-        </p>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-        <!-- Each project is one <article>. To add a project, copy a whole
-             <article>...</article> block and paste it below the last one.
-             data-status="active" gives the accent-coloured bar on the left;
-             use data-status="planned" for a grey bar. -->
-
-        <!-- EDIT: replace this sample project with your real one. -->
-        <article class="project" data-status="active">
-          <h3>Reducing JWST time-series data with Eureka!</h3>
-          <p class="status">In progress</p>
-          <p>
-            Running the Eureka! pipeline stage by stage on the public WASP-39b example dataset, from
-            uncalibrated detector data to light curves and spectra, and learning what each stage does.
-          </p>
-          <p><a href="https://eurekadocs.readthedocs.io/">Eureka! documentation</a></p>
-        </article>
-
-        <article class="project" data-status="planned">
-          <h3>Extracting transmission spectra</h3>
-          <p class="status">Planned</p>
-          <p>
-            Extracting transmission spectra for a set of assigned planets and comparing them with published results.
-          </p>
-        </article>
-
-        <article class="project" data-status="planned">
-          <h3>3D atmospheric modelling</h3>
-          <p class="status">Planned</p>
-          <p>
-            Interpreting the extracted spectra with three-dimensional atmospheric models, which capture how
-            temperature and winds vary across a planet.
-          </p>
-        </article>
-      </section>
-
-      <!-- ----- Tools and skills ----- -->
-      <section id="skills">
-        <h2>Tools and skills</h2>
-        <!-- EDIT: only list what you are comfortable talking about.
-             <dl> is a "description list": <dt> is the term, <dd> is its description. -->
-        <dl class="skills">
-          <dt>Programming</dt>
-          <dd>Python</dd>
-
-          <dt>JWST data tools</dt>
-          <dd>Eureka! (time-series observations), spaceKLIP (direct imaging)</dd>
-
-          <dt>Workflow</dt>
-          <dd>Git and GitHub, Jupyter notebooks</dd>
-        </dl>
-      </section>
-
-      <!-- ----- Talks and outreach ----- -->
-      <section id="talks">
-        <h2>Talks and outreach</h2>
-        <!-- EDIT: one <li> per talk, poster, or outreach event. Newest first. -->
-        <ul class="timeline">
-          <li>
-            <time datetime="2026">2026</time>
-            <span>Presented study papers on exoplanet atmospheres to my research group.</span>
-          </li>
-          <li>
-            <time datetime="2026">Year</time>
-            <span>Add a talk, poster, or outreach event here.</span>
-          </li>
-        </ul>
-      </section>
-
-      <!-- ----- CV ----- -->
-      <section id="cv">
-        <h2>CV</h2>
-        <!-- EDIT: save your CV as files/cv.pdf. Until you do, this link shows a "404 not found" page. -->
-        <p><a href="files/cv.pdf">Download my CV (PDF)</a></p>
-      </section>
-
-      <!-- ----- Contact ----- -->
-      <section id="contact">
-        <h2>Contact</h2>
-        <!-- EDIT: use your real links. Only share contact details you're happy to make public. -->
-        <ul class="contact-list">
-          <li><a href="mailto:you@example.com">Email</a></li>
-          <li><a href="https://github.com/somrupmukherjee22-oss">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/your-name/">LinkedIn</a></li>
-        </ul>
-      </section>
-
-      <footer class="site-footer">
-        <!-- js/main.js fills in the current year automatically. -->
-        <p>&copy; <span id="year">2026</span> Somrup Mukherjee</p>
-      </footer>
-    </main>
-
-  </div>
-</body>
+	</body>
 </html>
