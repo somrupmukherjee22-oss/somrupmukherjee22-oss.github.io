@@ -1,36 +1,76 @@
-/* custom.css: small additions on top of the Read Only template (main.css).
+/* custom.css: small changes on top of the Dimension template (main.css).
    Keeping them here means you never have to edit main.css. */
 
-/* Project headings: a bit more room above each one */
-#research h4 {
-	margin-top: 2.5em;
+/* Your photo in place of the round icon at the top of the page */
+#header .logo {
+	width: 12.5rem;
+	height: 12.5rem;
+	line-height: 0;
+	border: 0;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+#header .logo img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Keep the star and planet in view on wide screens */
+#bg:after {
+	background-position: 75% center;
+}
+
+/* The line under the "About Me" heading */
+.tagline {
+	font-style: italic;
+	font-size: 1.1rem;
+	opacity: 0.85;
+}
+
+/* Project titles: keep normal capitals (so the planet is "HD 209458 b", not "B") */
+#main article h3.project {
+	margin-top: 2.5rem;
+	font-size: 1rem;
+	letter-spacing: 0.1rem;
+	text-transform: none;
 }
 
 /* The line under a project title (dates, place) */
 .project-meta {
-	color: #777;
-	font-size: 0.9em;
-	margin: -0.75em 0 1.25em 0;
+	font-size: 0.85rem;
+	opacity: 0.75;
 }
 
-/* Figure captions: tuck them under their image */
-.image.fit + .caption {
-	color: #777;
-	font-size: 0.85em;
-	margin: -1.25em 0 2.5em 0;
+/* Figure captions */
+.caption {
+	margin-top: -1rem;
+	font-size: 0.8rem;
+	letter-spacing: 0.05rem;
+	opacity: 0.75;
 }
 
-/* The CV shown inside the page (hidden on small screens, where a download button is enough) */
+/* The CV shown inside the pop-up (hidden on small screens, where the download button is enough) */
 .cv-embed {
 	display: block;
 	width: 100%;
-	height: 44em;
-	margin-top: 1.5em;
-	border: solid 1px #f4f4f4;
+	height: 36rem;
+	margin: 0 0 2rem 0;
+	border: 0;
+	border-radius: 4px;
 }
 
 @media screen and (max-width: 736px) {
+
+	#header .logo {
+		width: 9rem;
+		height: 9rem;
+	}
+
 	.cv-embed {
 		display: none;
 	}
+
 }
